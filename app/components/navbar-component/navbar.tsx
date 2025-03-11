@@ -76,7 +76,7 @@ const Navbar = () => {
             <a href="/home">
               <a className="block py-2 hover:text-navbar-hover text-navbar-text">Home</a>
             </a>
-            {isLoggedIn ? (
+            {appUser ? (
               <>
                 <a href="/home/profile">
                   <a className="block py-2 hover:text-navbar-hover text-navbar-text">My Profile</a>
