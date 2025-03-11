@@ -54,12 +54,12 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <a href="/home/auth/login">
+                  <a href="/login">
                     <button className="bg-primaryButton hover:bg-primaryButton-hover text-primaryButton-text font-bold py-2 px-4 rounded">
                       Login
                     </button>
                   </a>
-                  <a href="/home/auth/register">
+                  <a href="/register">
                     <button className="bg-primaryButton hover:bg-primaryButton-hover text-primaryButton-text font-bold py-2 px-4 rounded">
                       Register
                     </button>
