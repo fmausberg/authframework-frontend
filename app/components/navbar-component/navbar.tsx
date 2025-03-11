@@ -4,7 +4,7 @@ import { useAuth } from '../../api/auth/authContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { isLoggedIn, logout } = useAuth();
+  const { appUser, logout } = useAuth();
 
   return (
     <nav className="bg-navbar-background shadow-lg">
@@ -38,7 +38,7 @@ const Navbar = () => {
 
             {/* Buttons only visible on Desktop */}
             <div className="hidden md:flex gap-2">
-              {isLoggedIn ? (
+              {appUser ? (
                 <>
                   <a href="/home/profile">
                     <button className="bg-primaryButton hover:bg-primaryButton-hover text-primaryButton-text font-bold py-2 px-4 rounded">
