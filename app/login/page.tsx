@@ -1,11 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useAuth } from '../api/auth/authContext';
 import api from '../api/auth/axiosInstance';
 
 export default function LoginPage() {
   const { login } = useAuth();
+  const router = useRouter();
   const [mail, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -16,6 +18,7 @@ export default function LoginPage() {
       const response = await api.post('/auth/directlogin', { mail: mail, password });
       const { appUser, jwttoken } = response.data;
       login(appUser, jwttoken);
+      router.push('/home');
     } catch (err) {
       setError('Invalid email or password');
     }
