@@ -1,9 +1,9 @@
 'use client';
 
+import React, { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import React from 'react';
 
-export default function RegisterDonePage() {
+const RegisterDonePageContent = () => {
   const searchParams = useSearchParams();
   const firstName = searchParams.get('firstName');
   const email = searchParams.get('email');
@@ -15,5 +15,13 @@ export default function RegisterDonePage() {
         <p>We have sent you an email to {email}. Please confirm your email to complete the registration process.</p>
       </div>
     </div>
+  );
+};
+
+export default function RegisterDonePage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <RegisterDonePageContent />
+    </Suspense>
   );
 }
