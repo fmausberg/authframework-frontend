@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
 };
 
 module.exports = {
-  exportTrailingSlash: true, // Optional, to add trailing slashes to the URLs
+  trailingSlash: true, // Optional, to add trailing slashes to the URLs
+  output: 'export',
   // Other configurations if needed
 }
 
