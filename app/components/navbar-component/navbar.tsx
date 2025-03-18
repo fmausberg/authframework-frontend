@@ -40,7 +40,7 @@ const Navbar = () => {
             <div className="hidden md:flex gap-2">
               {appUser ? (
                 <>
-                  <a href="/home/profile">
+                  <a href="/profile">
                     <button className="bg-primaryButton hover:bg-primaryButton-hover text-primaryButton-text font-bold py-2 px-4 rounded">
                       My Profile
                     </button>
@@ -78,7 +78,7 @@ const Navbar = () => {
             </a>
             {appUser ? (
               <>
-                <a href="/home/profile">
+                <a href="/profile">
                   <a className="block py-2 hover:text-navbar-hover text-navbar-text">My Profile</a>
                 </a>
                 <button 
@@ -90,10 +90,10 @@ const Navbar = () => {
               </>
             ) : (
               <>
-                <a href="/home/auth/login">
+                <a href="/login">
                   <a className="block py-2 hover:text-navbar-hover text-navbar-text">Login</a>
                 </a>
-                <a href="/home/auth/register">
+                <a href="/register">
                   <a className="block py-2 hover:text-navbar-hover text-navbar-text">Register</a>
                 </a>
               </>
