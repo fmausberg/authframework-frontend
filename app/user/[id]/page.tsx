@@ -6,10 +6,9 @@ import { useAuth } from '../../api/auth/authContext';
 import api from '../../api/auth/axiosInstance'; // Import axios instance
 
 interface User {
-  firstName: string;
-  lastName: string;
-  email: string;
-  shownName: string;
+  publicName: string;
+  createdAt: string;
+  id: number;
 }
 
 const UserProfile = () => {
@@ -39,10 +38,10 @@ const UserProfile = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-4">
-      <h1 className="text-3xl font-semibold mb-4">{user.shownName}'s Profile</h1>
-      <p className="text-xl mb-2">First Name: <span className="font-medium">{user.firstName}</span></p>
-      <p className="text-xl mb-2">Last Name: <span className="font-medium">{user.lastName}</span></p>
-      <p className="text-xl mb-2">Email: <span className="font-medium">{user.email}</span></p>
+      <h1 className="text-3xl font-semibold mb-4">Public Profile</h1>
+      <p className="text-xl mb-2">Public Name: <span className="font-medium">{user.publicName}</span></p>
+      <p className="text-xl mb-2">ID: <span className="font-medium">{user.id}</span></p>
+      <p className="text-xl mb-2">Created At: <span className="font-medium">{new Date(user.createdAt).toLocaleDateString('en-GB')}</span></p>
     </div>
   );
 };

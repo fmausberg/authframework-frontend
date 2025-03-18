@@ -40,7 +40,7 @@ const Navbar = () => {
             <div className="hidden md:flex gap-2">
               {appUser ? (
                 <>
-                  <a href="/profile">
+                  <a href="/user/me">
                     <button className="bg-primaryButton hover:bg-primaryButton-hover text-primaryButton-text font-bold py-2 px-4 rounded">
                       My Profile
                     </button>
