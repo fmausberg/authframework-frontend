@@ -33,7 +33,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="border-t border-gray-200 mt-8 pt-8 text-center">
             <p className="text-sm text-footer-text">
-              © {new Date().getFullYear()} Felix Mausberg. Alle Rechte vorbehalten.
+              © {new Date().getFullYear()} Felix Paul Mausberg. Alle Rechte vorbehalten.
             </p>
           </div>
         </div>
