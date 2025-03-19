@@ -23,7 +23,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/webpack": "^5.28.5",
-    "tailwindcss": "^4",
+    "tailwindcss": "^latest_version",
     "typescript": "^5",
     "webpack": "^5.98.0"
   }
