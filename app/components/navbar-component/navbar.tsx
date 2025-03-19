@@ -14,7 +14,7 @@ const Navbar = () => {
         <div className="grid grid-cols-2 md:grid-cols-12 items-center h-16">
           {/* Logo: On Mobile 1 of 2 columns, on Desktop 3 of 12 columns */}
           <div className="col-span-1 md:col-span-3">
-            <span className="text-xl font-bold text-navbar-text">Logo</span>
+            <span className="text-xl font-bold text-navbar-text">Logo Test</span>
           </div>
 
           {/* Navigation: Hidden on Mobile, on Desktop 6 of 12 columns */}
