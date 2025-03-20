@@ -25,6 +25,7 @@
     "@types/webpack": "^5.28.5",
     "tailwindcss": "^latest_version",
     "typescript": "^5",
+    "style-loader": "^latest_version",
     "webpack": "^5.98.0"
   }
 }
