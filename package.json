@@ -17,13 +17,12 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    
     "@types/axios": "^0.14.4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/webpack": "^5.28.5",
-    "tailwindcss": "^latest_version",
+    "tailwindcss": "^4.0.0",
     "typescript": "^5",
     "style-loader": "^latest_version",
     "webpack": "^5.98.0"
