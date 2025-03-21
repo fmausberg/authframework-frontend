@@ -2,6 +2,7 @@ import type { NextConfig } from 'next';
 import type { Configuration as WebpackConfig } from 'webpack';
 
 const nextConfig: NextConfig = {
+  distDir: '.next',
   trailingSlash: true, // Optional, to add trailing slashes to the URLs
   output: 'standalone',
   reactStrictMode: true,
