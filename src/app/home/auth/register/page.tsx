@@ -1,45 +1,10 @@
 'use client';
+
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function RegisterPage() {
-    const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        mail: '',
-        password: ''
-    });
-    const [error, setError] = useState('');
-    const router = useRouter();
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setError(''); // Clear any previous error
-        const response = await fetch('http://localhost:8080/api/v0/auth/register', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            mail: formData.mail,
-            password: formData.password,
-            firstName: formData.firstName,
-            lastName: formData.lastName
-          }),
-        });
-        const data = await response.json();
-        console.log(data);
-    
-        if (response.ok) {
-          if (data && data.id && data.mail) {
-            // Registration successful, redirect to confirmation page
-            router.push('/home/auth/register/confirmation');
-          }
-        } else {
-          // Registration failed, show error message
-          setError(data.message || 'There was an error with the registration. Please try again.');
-        }
-      };
+    const []
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-slate-50 pt-16 pb-16">
