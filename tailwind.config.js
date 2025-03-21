@@ -1,14 +1,15 @@
+// tailwind.cofig.js
+// tailwind.config.js
 module.exports = {
     content: [
-        "./src/**/*.{html,js,jsx,ts,tsx}",
-        "./app/**/*.{js,ts,jsx,tsx}", // Adjust this based on your project structure
-        "./pages/**/*.{js,ts,jsx,tsx}", // Ensure the content paths are correct
-        "./components/**/*.{js,ts,jsx,tsx}",
-        "./public/index.html",
+      "./app/**/*.{html,js,jsx,ts,tsx}",
+      "./pages/**/*.{html,js,jsx,ts,tsx}",
+      "./components/**/*.{html,js,jsx,ts,tsx}"
     ],
     theme: {
       extend: {},
     },
     plugins: [],
-  };
+  }
+  
   
