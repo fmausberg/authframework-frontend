@@ -3,9 +3,11 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const [mail, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -13,7 +15,7 @@ export default function LoginPage() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const response = await fetch(`${apiUrl}/auth/directlogin`, {
+    const response = await fetch(`${apiUrl}/auth/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,38 +27,72 @@ export default function LoginPage() {
       // Handle successful login, e.g., redirect to another page
       router.push("/dashboard");
     } else {
-      setErrorMessage("Login failed");
+      setErrorMessage("Registration failed");
     }
   };
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50">
+    <div className="min-h-screen flex items-center justify-center bg-slate-50 pt-16 pb-16">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h1 className="text-2xl font-bold text-center mb-8 text-textPrimary">
-          Login
+          Registrieren
         </h1>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Email Field */}
+          {/* firstName Feld */}
           <div>
             <label
-              htmlFor="email"
+              htmlFor="firstName"
               className="block text-sm font-medium text-textPrimary mb-2"
             >
-              Email
+              Vorname
             </label>
             <input
-              type="email"
-              id="email"
+              type="firstName"
+              id="firstName"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-formsDesigns-focus border-slate-300"
+              placeholder="Vorname"
+              required
+            />
+          </div>
+          {/* lastName Feld */}
+          <div>
+            <label
+              htmlFor="lastName"
+              className="block text-sm font-medium text-textPrimary mb-2"
+            >
+              Nachname
+            </label>
+            <input
+              type="lastName"
+              id="laslastNamee"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-formsDesigns-focus border-slate-300"
+              placeholder="Nachname"
+              required
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="mail"
+              className="block text-sm font-medium text-textPrimary mb-2"
+            >
+              mail
+            </label>
+            <input
+              type="mail"
+              id="mail"
               value={mail}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-formsDesigns-focus border-slate-300"
-              placeholder="ihre@email.com"
+              placeholder="ihre@mail.com"
               required
             />
           </div>
 
-          {/* Password Field */}
+          {/* Passwort Feld */}
           <div>
             <label
               htmlFor="password"
@@ -74,25 +110,25 @@ export default function LoginPage() {
               required
             />
           </div>
-
           {errorMessage && (
             <p className="text-red-500 text-center">{errorMessage}</p>
           )}
-
-          {/* Additional Links */}
           <div className="flex items-center justify-between text-sm">
             <label className="flex items-center">
               <input
                 type="checkbox"
                 className="rounded border-slate-300 text-formsDesigns-checkbox shadow-sm focus:formsDesigns-focus focus:ring focus:ring-formsDesigns-focus focus:ring-opacity-50"
+                required
               />
-              <span className="ml-2 text-textPrimary">Angemeldet bleiben</span>
+              <span className="ml-2 text-textPrimary">
+                Datenschutz akzeptieren
+              </span>
             </label>
             <a
               href="/home/auth/forgot-password"
               className="text-links hover:text-links-hover"
             >
-              Passwort vergessen?
+              Datenschutzerklärung
             </a>
           </div>
 
@@ -101,17 +137,17 @@ export default function LoginPage() {
             type="submit"
             className="w-full bg-primaryButton text-primaryButton-text py-2 px-4 rounded-md hover:bg-primaryButton-hover focus:outline-none focus:ring-2 focus:ring-formsDesigns-focus focus:ring-offset-2 transition-colors duration-300"
           >
-            Einloggen
+            Registrieren
           </button>
 
-          {/* Registration Link */}
+          {/* Registrierungs-Link */}
           <p className="text-center text-sm text-textPrimary-light">
-            Noch kein Konto?{" "}
+            Bereits ein Konto?{" "}
             <a
-              href="/home/auth/register"
+              href="/home//auth/login"
               className="text-links hover:text-links-hover"
             >
-              Jetzt registrieren
+              Jetzt einloggen
             </a>
           </p>
         </form>
