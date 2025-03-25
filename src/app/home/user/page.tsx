@@ -39,7 +39,7 @@ export default function UserPage() {
     fetchUserData();
   }, []);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: { target: { name: any; value: any; }; }) => {
     const { name, value } = e.target;
     setUserData((prevData) => ({
       ...prevData,
@@ -47,7 +47,7 @@ export default function UserPage() {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     try {
       const response = await fetchWithToken("/updateme", {
