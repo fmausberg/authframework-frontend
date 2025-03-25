@@ -71,7 +71,7 @@ export default function UserPage() {
         <h1 className="text-2xl font-bold text-center mb-8 text-textPrimary">
           Benutzerübersicht
         </h1>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form /*onSubmit=</div>{handleSubmit}*/ className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-textPrimary mb-1">
               Vorname:
@@ -80,7 +80,7 @@ export default function UserPage() {
               type="text"
               name="firstName"
               value={userData.firstName}
-              onChange={handleInputChange}
+              /*onChange={handleInputChange}*/
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-formsDesigns-focus border-slate-300"
             />
           </div>
@@ -92,7 +92,7 @@ export default function UserPage() {
               type="text"
               name="lastName"
               value={userData.lastName}
-              onChange={handleInputChange}
+              /*onChange={handleInputChange}*/
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-formsDesigns-focus border-slate-300"
             />
           </div>
@@ -104,7 +104,7 @@ export default function UserPage() {
               type="email"
               name="mail"
               value={userData.mail}
-              onChange={handleInputChange}
+              /*onChange={handleInputChange}*/
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-formsDesigns-focus border-slate-300"
             />
           </div>
