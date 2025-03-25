@@ -39,7 +39,7 @@ export default function UserPage() {
     fetchUserData();
   }, []);
 
-  const handleInputChange = (e) => {
+  /*const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUserData((prevData) => ({
       ...prevData,
@@ -63,7 +63,7 @@ export default function UserPage() {
     } catch (error) {
       console.error("Error updating user data:", error);
     }
-  };
+  };*/
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
