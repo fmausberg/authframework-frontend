@@ -1,11 +1,10 @@
-"use client"
 import Navbar from '../components/navbar-component/navbar';
 import Footer from '../components/footer-component/footer';
 import './globals.css';
 import { AuthProvider } from '../context/AuthContext';
 
 
-export default function RootLayout({
+export default function Layout({
   children,
 }: {
   children: React.ReactNode;
