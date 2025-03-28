@@ -25,7 +25,7 @@ export default function RegisterPage() {
 
     if (response.ok) {
       // Handle successful login, e.g., redirect to another page
-      router.push("/dashboard");
+      router.push("/auth/register/confirmation");
     } else {
       setErrorMessage("Registration failed");
     }

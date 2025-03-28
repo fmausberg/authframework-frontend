@@ -16,7 +16,6 @@ export default function LoginPage() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    console.log("Form submitted with email:", mail, "and password:", password);
     try {
       const response = await fetch(`${apiUrl}/auth/directlogin`, {
         method: "POST",
