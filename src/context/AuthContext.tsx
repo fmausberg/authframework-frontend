@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, {
   createContext,
@@ -7,10 +7,10 @@ import React, {
   useEffect,
   ReactNode,
 } from "react";
-import { getCookie, deleteCookie } from "../utils/session-management";
 
 interface AuthContextType {
   isLoggedIn: boolean;
+  loading: boolean;
   login: () => void;
   logout: () => void;
 }
@@ -27,22 +27,27 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const token = getCookie("jwttoken");
+    const token = localStorage.getItem("jwttoken");
     if (token) {
       setIsLoggedIn(true);
     }
+    setLoading(false); // Authentication state has been determined
   }, []);
 
-  const login = () => setIsLoggedIn(true);
+  const login = () => {
+    setIsLoggedIn(true);
+  };
+
   const logout = () => {
     setIsLoggedIn(false);
-    deleteCookie("jwttoken");
+    localStorage.removeItem("jwttoken");
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={{ isLoggedIn, loading, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

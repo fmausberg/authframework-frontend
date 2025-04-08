@@ -27,7 +27,8 @@ export default function VerifyPage() {
       });
 
       if (response.ok) {
-        setMessage("Mail ist verifiziert");
+        const data = await response.json();
+        setMessage(`Mail ist verifiziert. Willkommen, ${data.firstName}!`);
       } else {
         setErrorMessage("Verifizierung fehlgeschlagen");
       }

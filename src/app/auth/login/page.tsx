@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { setCookie } from "../../../utils/session-management";
 import { useAuth } from "../../../context/AuthContext";
 
 export default function LoginPage() {
@@ -28,8 +27,14 @@ export default function LoginPage() {
       if (response.ok) {
         const data = await response.json();
         const token = data.jwttoken;
-        setCookie("jwttoken", token);
+
+        // Store the token in localStorage
+        localStorage.setItem("jwttoken", token);
+
+        // Call the login function from AuthContext
         login();
+
+        // Redirect to the user home page
         router.push("/home/user");
       } else {
         setErrorMessage("Login failed");
@@ -66,7 +71,6 @@ export default function LoginPage() {
             />
           </div>
 
-          {/* Password Field */}
           <div>
             <label
               htmlFor="password"
@@ -89,7 +93,6 @@ export default function LoginPage() {
             <p className="text-red-500 text-center">{errorMessage}</p>
           )}
 
-          {/* Additional Links */}
           <div className="flex items-center justify-between text-sm">
             <label className="flex items-center">
               <input
@@ -106,7 +109,6 @@ export default function LoginPage() {
             </a>
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
             className="w-full bg-primaryButton text-primaryButton-text py-2 px-4 rounded-md hover:bg-primaryButton-hover focus:outline-none focus:ring-2 focus:ring-formsDesigns-focus focus:ring-offset-2 transition-colors duration-300"
@@ -114,7 +116,6 @@ export default function LoginPage() {
             Einloggen
           </button>
 
-          {/* Registration Link */}
           <p className="text-center text-sm text-textPrimary-light">
             Noch kein Konto?{" "}
             <a
